@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Image Search GCN</title>
+        <!-- GG Font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+            rel="stylesheet"
+        />
+        <!-- Reset CSS -->
+        <link rel="stylesheet" href="./assets/css/reset.css" />
+        <!-- Style CSS -->
+        <link rel="stylesheet" href="./assets/css/styles.css" />
+    </head>
+    <body>
+        <main class="container">
+            <div class="search">
+                <div class="search__inner">
+                    <figure class="search-inner__media">
+                        <img
+                            class="search-inner-media__thumbnail"
+                            src="./assets/img/img-hero.svg"
+                            alt=""
+                        />
+                    </figure>
+                    <div class="form-upload">
+                        <div class="form-upload__img">
+                            <label
+                                for="form-upload-img"
+                                class="form-upload__label"
+                            >   
+                                <figure class="form-upload__icon-inner">
+                                    <img class="form-upload__icon" src="./assets/img/upload.svg" alt="">
+                                </figure>
+                                <span class="form-upload__text"
+                                    ><b class="form-upload__bold"
+                                        >Nhấp để tải lên</b
+                                    >
+                                    hoặc kéo và thả</span
+                                >
+                                <input hidden id="form-upload-img" type="file" />
+                            </label>
+                            <div class="form-upload__preview">
+                                <figure class="form-upload__img-pre">
+                                    <img
+                                        src=""
+                                        alt=""
+                                        class="form-upload__thumb"
+                                    />
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

@@ -98,14 +98,19 @@ strong {
     object-fit: cover;
 }
 .form-upload__img {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+}
+.form-upload__label {
     padding: 50px 32px;
-    border-radius: 0.866rem;
+    border-radius: 8px;
     border: 1.5px dashed #9e9e9e;
     background: rgba(250, 250, 250, 0.7);
     transition: opacity 0.5s ease;
     cursor: pointer;
 }
-.form-upload__img:hover {
+.form-upload__label:hover {
     opacity: 0.8;
 }
 .form-upload__label {
@@ -120,5 +125,116 @@ strong {
 
 .form-upload__bold {
     color: #136dc7;
+}
+.form-upload__img-pre {
+    position: relative;
+    padding-top: 56.25%;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+}
+.form-upload__img-pre::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    z-index: 1;
+}
+.form-upload__thumb {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.form-upload__close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    background-color: #d14343;
+    border-radius: 50%;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+.form-upload__close:hover {
+    opacity: 0.8;
+}
+@keyframes growProgressBar {
+    0%,
+    33% {
+        --pgPercentage: 0;
+    }
+    100% {
+        --pgPercentage: var(--value);
+    }
+}
+
+@property --pgPercentage {
+    syntax: "<number>";
+    inherits: false;
+    initial-value: 0;
+}
+
+div[role="progressbar"] {
+    --size: 50px;
+    --fg: #2563eb;
+    --bg: #def;
+    --pgPercentage: var(--value);
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    animation: growProgressBar 3s 1 forwards;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: radial-gradient(
+            closest-side,
+            white 80%,
+            transparent 0 99.9%,
+            white 0
+        ),
+        conic-gradient(var(--fg) calc(var(--pgPercentage) * 1%), var(--bg) 0);
+    font-size: 1.4rem;
+    z-index: 2;
+    color: var(--fg);
+}
+
+div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) "%";
+}
+.form-upload__btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    background: #3370ff14;
+    color: #2563eb;
+    font-weight: 600;
+    margin-left: auto;
+    margin-top: 30px;
+    transition: opacity 0.03s ease;
+}
+.form-upload__btn-icon {
+    width: 20px;
+    -webkit-filter: brightness(0) saturate(100%) invert(26%) sepia(99%)
+        saturate(3084%) hue-rotate(218deg) brightness(98%) contrast(87%);
+    filter: brightness(0) saturate(100%) invert(26%) sepia(99%) saturate(3084%)
+        hue-rotate(218deg) brightness(98%) contrast(87%);
+}
+.form-upload__btn:hover {
+    opacity: 0.8;
 }
 /* * * *  End Image Search * * * */
